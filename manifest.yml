@@ -1,0 +1,8 @@
+---
+applications:
+- name: students
+  memory: 256M
+  instances: 1
+  buildpacks:
+  - go_buildpack
+  command: ./StudentAPIs.git.exe
