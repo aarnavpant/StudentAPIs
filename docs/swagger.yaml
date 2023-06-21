@@ -1,0 +1,95 @@
+definitions:
+  src.Student:
+    properties:
+      name:
+        type: string
+      rollNo:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /addStudent:
+    post:
+      description: Creates a student with given data
+      operationId: create-student
+      parameters:
+      - description: student
+        in: body
+        name: stud
+        required: true
+        schema:
+          $ref: '#/definitions/src.Student'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+      summary: Creates a student with given data
+  /deleteStudent:
+    delete:
+      description: Deletes a student with given id
+      operationId: delete-student
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.Student'
+        "404":
+          description: Not Found
+          schema:
+            type: string
+      summary: Deletes a student with given id
+  /getStudent:
+    get:
+      description: Get the student with given id
+      operationId: get-student
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.Student'
+        "404":
+          description: Not Found
+          schema:
+            type: string
+      summary: Get the student with given id
+  /getStudents:
+    get:
+      description: Get all students
+      operationId: get-students
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/src.Student'
+            type: array
+      summary: Get all students
+      tags:
+      - students
+swagger: "2.0"

@@ -1,4 +1,4 @@
-package main_test
+package src_test
 
 import (
 	"testing"
@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestStudentAPIs(t *testing.T) {
+func TestSrc(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "StudentAPIs Suite")
+	RunSpecs(t, "Src Suite")
 }
